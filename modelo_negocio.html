@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma Freelance Peruana - Documento Completo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .tabs {
+            display: flex;
+            background-color: #2c3e50;
+            overflow-x: auto;
+        }
+        .tab {
+            padding: 15px 20px;
+            color: white;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background-color 0.3s;
+            border-right: 1px solid #34495e;
+        }
+        .tab:hover {
+            background-color: #34495e;
+        }
+        .tab.active {
+            background-color: #3498db;
+        }
+        .tab-content {
+            display: none;
+            padding: 30px;
+            line-height: 1.6;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .flow-step {
+            background: #ecf0f1;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        .flow-step h4 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #ffc107;
+            margin: 15px 0;
+        }
+        .sprint-box {
+            background: #e8f5e8;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+        }
+        .feature-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .feature-list li {
+            background: #f8f9fa;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 3px solid #17a2b8;
+        }
+        .cost-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin: 5px 0;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        .cost-amount {
+            font-weight: bold;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tabs">
+            <div class="tab active" onclick="showTab('flujo')">1. Diagrama de Flujo</div>
+            <div class="tab" onclick="showTab('modelo')">2. Modelo de Negocio</div>
+            <div class="tab" onclick="showTab('monetizacion')">3. Monetización</div>
+            <div class="tab" onclick="showTab('scrum')">4. Metodología Scrum</div>
+            <div class="tab" onclick="showTab('tiempo')">5. Timeline</div>
+            <div class="tab" onclick="showTab('detalles')">6. Detalles Técnicos</div>
+        </div>
+
+        <!-- TAB 1: DIAGRAMA DE FLUJO -->
+        <div id="flujo" class="tab-content active">
+            <h2 class="section-title">🔄 Diagrama de Flujo del Sistema</h2>
+            
+            <h3>👔 FLUJO DEL CLIENTE</h3>
+            <div class="flow-step">
+                <h4>1. Registro</h4>
+                <p>Email → Verificación → Perfil empresa → RUC → Listo</p>
+            </div>
+            <div class="flow-step">
+                <h4>2. Crear Proyecto</h4>
+                <p>Descripción → Tecnologías → Presupuesto → Plazo → Publicar</p>
+            </div>
+            <div class="flow-step">
+                <h4>3. Recibir Propuestas</h4>
+                <p>Ver propuestas → Comparar perfiles → Chat → Entrevistar</p>
+            </div>
+            <div class="flow-step">
+                <h4>4. Contratar</h4>
+                <p>Seleccionar → Aceptar términos → Depositar dinero → Inicio</p>
+            </div>
+            <div class="flow-step">
+                <h4>5. Seguimiento</h4>
+                <p>Dashboard → Milestones → Comunicación → Aprobaciones</p>
+            </div>
+            <div class="flow-step">
+                <h4>6. Finalización</h4>
+                <p>Entrega final → Revisión → Aprobación → Pago → Rating</p>
+            </div>
+
+            <h3>💻 FLUJO DEL PROGRAMADOR</h3>
+            <div class="flow-step">
+                <h4>1. Registro</h4>
+                <p>Email → DNI → Portfolio → Skills → Tarifas → Verificación</p>
+            </div>
+            <div class="flow-step">
+                <h4>2. Buscar Proyectos</h4>
+                <p>Filtros → Tecnologías → Presupuesto → Guardar favoritos</p>
+            </div>
+            <div class="flow-step">
+                <h4>3. Enviar Propuesta</h4>
+                <p>Leer proyecto → Cotizar → Cronograma → Enviar</p>
+            </div>
+            <div class="flow-step">
+                <h4>4. Comunicación</h4>
+                <p>Chat cliente → Aclarar dudas → Negociar → Entrevista</p>
+            </div>
+            <div class="flow-step">
+                <h4>5. Desarrollo</h4>
+                <p>Confirmar inicio → Trabajar → Subir progreso → Entregas</p>
+            </div>
+            <div class="flow-step">
+                <h4>6. Cobro</h4>
+                <p>Entrega final → Aprobación → Cobrar (menos 8%) → Rating</p>
+            </div>
+        </div>
+
+        <!-- TAB 2: MODELO DE NEGOCIO -->
+        <div id="modelo" class="tab-content">
+            <h2 class="section-title">🏢 Modelo de Negocio</h2>
+            
+            <table>
+                <tr>
+                    <th>Aspecto</th>
+                    <th>Descripción</th>
+                    <th>Beneficio</th>
+                </tr>
+                <tr>
+                    <td><strong>Propuesta de Valor</strong></td>
+                    <td>Plataforma 100% peruana con pagos locales y comisiones bajas</td>
+                    <td>Mayor retención vs competencia internacional</td>
+                </tr>
+                <tr>
+                    <td><strong>Segmento Cliente</strong></td>
+                    <td>Empresas peruanas PYMES y startups + Programadores locales</td>
+                    <td>Mercado específico y desatendido</td>
+                </tr>
+                <tr>
+                    <td><strong>Canales</strong></td>
+                    <td>Web platform + Marketing digital + Referidos</td>
+                    <td>Crecimiento orgánico y escalable</td>
+                </tr>
+                <tr>
+                    <td><strong>Relaciones</strong></td>
+                    <td>Self-service + Soporte chat + Comunidad</td>
+                    <td>Bajo costo operativo</td>
+                </tr>
+                <tr>
+                    <td><strong>Recursos Clave</strong></td>
+                    <td>Plataforma tech + Base datos usuarios + Brand</td>
+                    <td>Activos escalables</td>
+                </tr>
+                <tr>
+                    <td><strong>Actividades Clave</strong></td>
+                    <td>Desarrollo software + Marketing + Soporte</td>
+                    <td>Enfoque en producto y crecimiento</td>
+                </tr>
+                <tr>
+                    <td><strong>Socios</strong></td>
+                    <td>Pasarelas pago + Bancos + Comunidades tech</td>
+                    <td>Ecosistema robusto</td>
+                </tr>
+                <tr>
+                    <td><strong>Estructura Costos</strong></td>
+                    <td>Desarrollo + Hosting + Marketing + Legal</td>
+                    <td>Costos predecibles</td>
+                </tr>
+            </table>
+
+            <div class="highlight">
+                <strong>Ventaja Competitiva:</strong> Primera plataforma freelance exclusivamente peruana con enfoque en facilidad de pagos locales y comisiones justas.
+            </div>
+        </div>
+
+        <!-- TAB 3: MONETIZACIÓN -->
+        <div id="monetizacion" class="tab-content">
+            <h2 class="section-title">💰 Modelo de Monetización</h2>
+            
+            <h3>Fuentes de Ingresos</h3>
+            <table>
+                <tr>
+                    <th>Fuente</th>
+                    <th>Modelo</th>
+                    <th>Precio</th>
+                    <th>Estimado Mensual</th>
+                </tr>
+                <tr>
+                    <td><strong>Comisión Proyectos</strong></td>
+                    <td>8% por transacción exitosa</td>
+                    <td>Variable</td>
+                    <td>$2,000 - $8,000</td>
+                </tr>
+                <tr>
+                    <td><strong>Membresía Programador</strong></td>
+                    <td>Premium mensual</td>
+                    <td>$15/mes</td>
+                    <td>$300 - $1,500</td>
+                </tr>
+                <tr>
+                    <td><strong>Membresía Empresa</strong></td>
+                    <td>Premium mensual</td>
+                    <td>$25/mes</td>
+                    <td>$250 - $1,250</td>
+                </tr>
+                <tr>
+                    <td><strong>Proyectos Destacados</strong></td>
+                    <td>Fee por visibilidad</td>
+                    <td>$10/proyecto</td>
+                    <td>$200 - $500</td>
+                </tr>
+                <tr>
+                    <td><strong>Verificaciones</strong></td>
+                    <td>Fee una vez</td>
+                    <td>$20/usuario</td>
+                    <td>$100 - $400</td>
+                </tr>
+            </table>
+
+            <h3>Proyección de Ingresos (Año 1)</h3>
+            <table>
+                <tr>
+                    <th>Mes</th>
+                    <th>Proyectos</th>
+                    <th>GMV</th>
+                    <th>Comisiones</th>
+                    <th>Membresías</th>
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <td>Mes 1-3</td>
+                    <td>5-10</td>
+                    <td>$5,000</td>
+                    <td>$400</td>
+                    <td>$100</td>
+                    <td>$500</td>
+                </tr>
+                <tr>
+                    <td>Mes 4-6</td>
+                    <td>15-25</td>
+                    <td>$15,000</td>
+                    <td>$1,200</td>
+                    <td>$300</td>
+                    <td>$1,500</td>
+                </tr>
+                <tr>
+                    <td>Mes 7-9</td>
+                    <td>30-50</td>
+                    <td>$35,000</td>
+                    <td>$2,800</td>
+                    <td>$600</td>
+                    <td>$3,400</td>
+                </tr>
+                <tr>
+                    <td>Mes 10-12</td>
+                    <td>50-80</td>
+                    <td>$60,000</td>
+                    <td>$4,800</td>
+                    <td>$1,000</td>
+                    <td>$5,800</td>
+                </tr>
+            </table>
+
+            <div class="highlight">
+                <strong>Meta Año 1:</strong> $100,000 GMV | $8,000 comisiones mensuales | Break-even mes 8
+            </div>
+        </div>
+
+        <!-- TAB 4: METODOLOGÍA SCRUM -->
+        <div id="scrum" class="tab-content">
+            <h2 class="section-title">🏃‍♂️ Metodología Scrum/Agile</h2>
+            
+            <h3>Sprint 1 (2 semanas) - Fundación</h3>
+            <div class="sprint-box">
+                <h4>🎯 Goal: Sistema básico de usuarios</h4>
+                <ul class="feature-list">
+                    <li>Setup Laravel + Base datos</li>
+                    <li>Sistema de autenticación</li>
+                    <li>Registro programadores y clientes</li>
+                    <li>Perfiles básicos</li>
+                    <li>Dashboard inicial</li>
+                </ul>
+                <strong>Definition of Done:</strong> Usuario puede registrarse, hacer login y completar perfil básico
+            </div>
+
+            <h3>Sprint 2 (2 semanas) - Proyectos Core</h3>
+            <div class="sprint-box">
+                <h4>🎯 Goal: Sistema de proyectos</h4>
+                <ul class="feature-list">
+                    <li>CRUD de proyectos</li>
+                    <li>Búsqueda y filtros básicos</li>
+                    <li>Sistema de propuestas</li>
+                    <li>Chat básico entre usuarios</li>
+                    <li>Estados de proyecto</li>
+                </ul>
+                <strong>Definition of Done:</strong> Cliente puede publicar proyecto y recibir propuestas
+            </div>
+
+            <h3>Sprint 3 (2 semanas) - Pagos</h3>
+            <div class="sprint-box">
+                <h4>🎯 Goal: Sistema de pagos y escrow</h4>
+                <ul class="feature-list">
+                    <li>Integración Culqi/Izipay</li>
+                    <li>Sistema de escrow básico</li>
+                    <li>Liberación de pagos</li>
+                    <li>Comisiones automáticas</li>
+                    <li>Historial de transacciones</li>
+                </ul>
+                <strong>Definition of Done:</strong> Flujo completo de pago funcional
+            </div>
+
+            <h3>Sprint 4 (2 semanas) - UX/Pulimiento</h3>
+            <div class="sprint-box">
+                <h4>🎯 Goal: Experiencia de usuario</h4>
+                <ul class="feature-list">
+                    <li>Sistema de ratings/reviews</li>
+                    <li>Notificaciones email</li>
+                    <li>Responsive design</li>
+                    <li>SEO básico</li>
+                    <li>Testing y bug fixes</li>
+                </ul>
+                <strong>Definition of Done:</strong> MVP listo para usuarios reales
+            </div>
+
+            <h3>Ceremonias Scrum</h3>
+            <table>
+                <tr>
+                    <th>Ceremonia</th>
+                    <th>Frecuencia</th>
+                    <th>Duración</th>
+                    <th>Objetivo</th>
+                </tr>
+                <tr>
+                    <td>Sprint Planning</td>
+                    <td>Cada 2 semanas</td>
+                    <td>2 horas</td>
+                    <td>Planificar tareas del sprint</td>
+                </tr>
+                <tr>
+                    <td>Daily Standup</td>
+                    <td>Diario</td>
+                    <td>15 min</td>
+                    <td>Sincronizar progreso</td>
+                </tr>
+                <tr>
+                    <td>Sprint Review</td>
+                    <td>Cada 2 semanas</td>
+                    <td>1 hora</td>
+                    <td>Demo del trabajo completado</td>
+                </tr>
+                <tr>
+                    <td>Sprint Retro</td>
+                    <td>Cada 2 semanas</td>
+                    <td>45 min</td>
+                    <td>Mejorar proceso</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- TAB 5: TIMELINE -->
+        <div id="tiempo" class="tab-content">
+            <h2 class="section-title">⏰ Timeline del Proyecto</h2>
+            
+            <h3>Fase 1: Desarrollo MVP (2 meses)</h3>
+            <table>
+                <tr>
+                    <th>Semana</th>
+                    <th>Actividades</th>
+                    <th>Entregables</th>
+                    <th>Horas/semana</th>
+                </tr>
+                <tr>
+                    <td>1-2</td>
+                    <td>Setup inicial + Auth system</td>
+                    <td>Laravel configurado, login/registro</td>
+                    <td>15-20h</td>
+                </tr>
+                <tr>
+                    <td>3-4</td>
+                    <td>Perfiles y dashboard</td>
+                    <td>Perfiles completos, dashboards básicos</td>
+                    <td>15-20h</td>
+                </tr>
+                <tr>
+                    <td>5-6</td>
+                    <td>Sistema de proyectos</td>
+                    <td>CRUD proyectos, búsqueda, filtros</td>
+                    <td>20-25h</td>
+                </tr>
+                <tr>
+                    <td>7-8</td>
+                    <td>Propuestas y chat</td>
+                    <td>Sistema propuestas, comunicación</td>
+                    <td>20-25h</td>
+                </tr>
+            </table>
+
+            <h3>Fase 2: Pagos y Testing (3 semanas)</h3>
+            <table>
+                <tr>
+                    <th>Semana</th>
+                    <th>Actividades</th>
+                    <th>Entregables</th>
+                    <th>Horas/semana</th>
+                </tr>
+                <tr>
+                    <td>9-10</td>
+                    <td>Integración pagos</td>
+                    <td>Culqi integrado, escrow funcional</td>
+                    <td>25-30h</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Testing y pulimiento</td>
+                    <td>Bugs corregidos, UX mejorada</td>
+                    <td>20h</td>
+                </tr>
+            </table>
+
+            <h3>Fase 3: Lanzamiento (2 semanas)</h3>
+            <table>
+                <tr>
+                    <th>Semana</th>
+                    <th>Actividades</th>
+                    <th>Entregables</th>
+                    <th>Horas/semana</th>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>Deploy y configuración</td>
+                    <td>Aplicación en producción</td>
+                    <td>15h</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>Marketing y primeros usuarios</td>
+                    <td>Landing page, primeros registros</td>
+                    <td>10h</td>
+                </tr>
+            </table>
+
+            <div class="highlight">
+                <strong>Total: 3 meses | 250-300 horas | Trabajando 20h/semana</strong><br>
+                Compatible con trabajo en NTT Data y AyudaMat
+            </div>
+        </div>
+
+        <!-- TAB 6: DETALLES TÉCNICOS -->
+        <div id="detalles" class="tab-content">
+            <h2 class="section-title">⚙️ Detalles Técnicos</h2>
+            
+            <h3>Stack Tecnológico</h3>
+            <table>
+                <tr>
+                    <th>Componente</th>
+                    <th>Tecnología</th>
+                    <th>Justificación</th>
+                </tr>
+                <tr>
+                    <td>Backend</td>
+                    <td>Laravel 11</td>
+                    <td>Ya lo dominas, rápido desarrollo</td>
+                </tr>
+                <tr>
+                    <td>Frontend</td>
+                    <td>Blade + Bootstrap 5</td>
+                    <td>Simple, responsive, menos complejidad</td>
+                </tr>
+                <tr>
+                    <td>Base Datos</td>
+                    <td>MySQL 8.0</td>
+                    <td>Incluido en Hostgator, confiable</td>
+                </tr>
+                <tr>
+                    <td>Pagos</td>
+                    <td>Culqi API</td>
+                    <td>Mejor para Perú, tarjetas locales</td>
+                </tr>
+                <tr>
+                    <td>Hosting</td>
+                    <td>Hostgator Shared</td>
+                    <td>Económico para empezar</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>SendGrid/Mailgun</td>
+                    <td>Transaccional confiable</td>
+                </tr>
+                <tr>
+                    <td>Storage</td>
+                    <td>Local + Cloudinary</td>
+                    <td>Imágenes y archivos</td>
+                </tr>
+            </table>
+
+            <h3>Arquitectura de Base de Datos</h3>
+            <h4>Tablas Principales:</h4>
+            <ul class="feature-list">
+                <li><strong>users:</strong> id, name, email, type(client/freelancer), verified_at</li>
+                <li><strong>freelancer_profiles:</strong> user_id, skills, hourly_rate, portfolio</li>
+                <li><strong>client_profiles:</strong> user_id, company_name, ruc, industry</li>
+                <li><strong>projects:</strong> client_id, title, description, budget, status, tech_stack</li>
+                <li><strong>proposals:</strong> freelancer_id, project_id, amount, timeline, message</li>
+                <li><strong>contracts:</strong> project_id, freelancer_id, client_id, status, amount</li>
+                <li><strong>payments:</strong> contract_id, amount, status, commission, transaction_id</li>
+                <li><strong>messages:</strong> sender_id, receiver_id, project_id, content</li>
+                <li><strong>reviews:</strong> reviewer_id, reviewed_id, project_id, rating, comment</li>
+            </ul>
+
+            <h3>Features por Desarrollar</h3>
+            <h4>MVP (Must Have):</h4>
+            <ul class="feature-list">
+                <li>Registro/Login con verificación email</li>
+                <li>Perfiles completos (freelancer/client)</li>
+                <li>CRUD proyectos con filtros</li>
+                <li>Sistema propuestas</li>
+                <li>Chat básico</li>
+                <li>Pagos con escrow</li>
+                <li>Sistema ratings</li>
+                <li>Dashboard principal</li>
+            </ul>
+
+            <h4>Fase 2 (Should Have):</h4>
+            <ul class="feature-list">
+                <li>Notificaciones en tiempo real</li>
+                <li>Sistema de milestones</li>
+                <li>Videollamadas integradas</li>
+                <li>App móvil básica</li>
+                <li>Reportes y analytics</li>
+                <li>Sistema referidos</li>
+            </ul>
+
+            <h3>Costos Estimados</h3>
+            <div class="cost-item">
+                <span>Hosting Hostgator (anual)</span>
+                <span class="cost-amount">$120</span>
+            </div>
+            <div class="cost-item">
+                <span>Dominio .com</span>
+                <span class="cost-amount">$15</span>
+            </div>
+            <div class="cost-item">
+                <span>SSL Certificado</span>
+                <span class="cost-amount">$0 (gratuito)</span>
+            </div>
+            <div class="cost-item">
+                <span>SendGrid (email)</span>
+                <span class="cost-amount">$15/mes</span>
+            </div>
+            <div class="cost-item">
+                <span>Culqi (setup)</span>
+                <span class="cost-amount">$0 + 3.59% transacciones</span>
+            </div>
+            <div class="cost-item">
+                <span>Cloudinary (imágenes)</span>
+                <span class="cost-amount">$0 (plan gratuito inicial)</span>
+            </div>
+            <div class="cost-item">
+                <span><strong>Total Mensual</strong></span>
+                <span class="cost-amount"><strong>$25-30</strong></span>
+            </div>
+
+            <div class="highlight">
+                <strong>Inversión inicial:</strong> $200 (setup) + $30/mes operación<br>
+                <strong>Break-even:</strong> $400 comisiones mensuales (5-10 proyectos)
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(tab => tab.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
