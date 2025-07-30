@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Ejecución - Plataforma Freelance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .phase {
+            margin-bottom: 40px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .phase-header {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 20px 30px;
+            font-size: 1.4em;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .phase-content {
+            background: #f8f9fa;
+            padding: 30px;
+        }
+        
+        .task-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .task-item {
+            background: white;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .task-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .task-title {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+        
+        .task-desc {
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+        
+        .sprint-breakdown {
+            background: linear-gradient(135deg, #e8f5e8, #f0f8f0);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+        
+        .sprint-title {
+            color: #27ae60;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .day-by-day {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .day-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 5px solid #27ae60;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .day-header {
+            background: #27ae60;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .day-tasks {
+            list-style: none;
+        }
+        
+        .day-task {
+            padding: 8px 0;
+            border-bottom: 1px dashed #ecf0f1;
+            color: #2c3e50;
+        }
+        
+        .day-task:last-child {
+            border-bottom: none;
+        }
+        
+        .day-task::before {
+            content: "✓";
+            color: #27ae60;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .hours-estimate {
+            background: #e74c3c;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #ecf0f1;
+            border-radius: 4px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #27ae60, #2ecc71);
+            width: 0%;
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+        
+        .phase.phase-1 .phase-header {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+        
+        .phase.phase-2 .phase-header {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+        }
+        
+        .phase.phase-3 .phase-header {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+        }
+        
+        .phase.phase-4 .phase-header {
+            background: linear-gradient(135deg, #27ae60, #229954);
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        
+        .checklist-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #3498db;
+        }
+        
+        .priority-high {
+            border-left-color: #e74c3c !important;
+        }
+        
+        .priority-medium {
+            border-left-color: #f39c12 !important;
+        }
+        
+        .priority-low {
+            border-left-color: #27ae60 !important;
+        }
+        
+        .emoji {
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Plan de Ejecución</h1>
+            <p>Plataforma Freelance Peruana - De la Idea a la Realidad</p>
+        </div>
+        
+        <div class="content">
+            <!-- FASE 1: DECISIONES RÁPIDAS -->
+            <div class="phase phase-1">
+                <div class="phase-header">
+                    <span class="emoji">⚡</span>
+                    <span>FASE 1: DECISIONES RÁPIDAS (Esta Semana)</span>
+                </div>
+                <div class="phase-content">
+                    <ul class="task-list">
+                        <li class="task-item priority-high">
+                            <div class="task-title">🏷️ Nombre del Proyecto</div>
+                            <div class="task-desc">
+                                Decidir el nombre de la plataforma. Opciones sugeridas:
+                                <br>• <strong>DevPeru</strong> - Simple y directo
+                                <br>• <strong>CodePeru</strong> - Enfoque en programación  
+                                <br>• <strong>FreelancePeru</strong> - Descriptivo
+                                <br>• <strong>TalentoPeru</strong> - Más amplio
+                                <br>• <strong>ProyectosPeru</strong> - Enfoque en resultados
+                            </div>
+                        </li>
+                        <li class="task-item priority-high">
+                            <div class="task-title">🌐 Dominio</div>
+                            <div class="task-desc">
+                                Comprar dominio una vez decidido el nombre:
+                                <br>• Verificar disponibilidad .com y .pe
+                                <br>• Comprar en Hostgator o GoDaddy
+                                <br>• Configurar DNS inicial
+                            </div>
+                        </li>
+                        <li class="task-item priority-medium">
+                            <div class="task-title">🖥️ Hosting</div>
+                            <div class="task-desc">
+                                Configurar cuenta Hostgator:
+                                <br>• Plan Business ($15/mes)
+                                <br>• SSL gratuito incluido
+                                <br>• cPanel + MySQL
+                                <br>• Backup automático
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- FASE 2: SETUP TÉCNICO -->
+            <div class="phase phase-2">
+                <div class="phase-header">
+                    <span class="emoji">⚙️</span>
+                    <span>FASE 2: SETUP TÉCNICO (Semana 1-2)</span>
+                </div>
+                <div class="phase-content">
+                    <ul class="task-list">
+                        <li class="task-item priority-high">
+                            <div class="task-title">📱 Repositorio GitHub</div>
+                            <div class="task-desc">
+                                Crear repositorio privado:
+                                <br>• Nombre: freelance-peru-platform
+                                <br>• README inicial con tech stack
+                                <br>• .gitignore para Laravel
+                                <br>• Rama main protegida
+                            </div>
+                        </li>
+                        <li class="task-item priority-high">
+                            <div class="task-title">🎯 Setup Laravel 11</div>
+                            <div class="task-desc">
+                                Instalación y configuración:
+                                <br>• <code>composer create-project laravel/laravel freelance-peru</code>
+                                <br>• Configurar .env con base datos
+                                <br>• Instalar Breeze para autenticación
+                                <br>• Configurar mail driver
+                            </div>
+                        </li>
+                        <li class="task-item priority-medium">
+                            <div class="task-title">🗄️ Base de Datos</div>
+                            <div class="task-desc">
+                                Configuración MySQL:
+                                <br>• Crear base datos en cPanel
+                                <br>• Usuario y permisos
+                                <br>• Conexión desde local
+                                <br>• Primera migración de prueba
+                            </div>
+                        </li>
+                        <li class="task-item priority-low">
+                            <div class="task-title">🔧 Entorno Desarrollo</div>
+                            <div class="task-desc">
+                                Herramientas y configuración:
+                                <br>• VS Code con extensiones Laravel
+                                <br>• Laravel Telescope para debugging
+                                <br>• Configurar Git hooks
+                                <br>• Docker opcional para consistencia
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- FASE 3: WIREFRAMES -->
+            <div class="phase phase-3">
+                <div class="phase-header">
+                    <span class="emoji">🎨</span>
+                    <span>FASE 3: WIREFRAMES/MOCKUPS (Paralelo)</span>
+                </div>
+                <div class="phase-content">
+                    <ul class="task-list">
+                        <li class="task-item priority-medium">
+                            <div class="task-title">🔐 Pantallas de Autenticación</div>
+                            <div class="task-desc">
+                                Diseño de registro/login:
+                                <br>• Formulario registro dual (cliente/programador)
+                                <br>• Login unificado con redirección
+                                <br>• Recuperación de contraseña
+                                <br>• Verificación email
+                            </div>
+                        </li>
+                        <li class="task-item priority-high">
+                            <div class="task-title">📊 Dashboard Principal</div>
+                            <div class="task-desc">
+                                Diseño diferenciado:
+                                <br>• Dashboard Cliente: proyectos activos, propuestas recibidas
+                                <br>• Dashboard Programador: proyectos disponibles, propuestas enviadas
+                                <br>• Estadísticas básicas
+                                <br>• Enlaces rápidos
+                            </div>
+                        </li>
+                        <li class="task-item priority-medium">
+                            <div class="task-title">📋 Página de Proyecto</div>
+                            <div class="task-desc">
+                                Vista detallada:
+                                <br>• Información completa del proyecto
+                                <br>• Formulario de propuesta
+                                <br>• Lista de propuestas (para cliente)
+                                <br>• Perfil del cliente
+                            </div>
+                        </li>
+                        <li class="task-item priority-low">
+                            <div class="task-title">💬 Chat Básico</div>
+                            <div class="task-desc">
+                                Comunicación simple:
+                                <br>• Lista de conversaciones
+                                <br>• Chat individual por proyecto
+                                <br>• Estados de mensaje (enviado/leído)
+                                <br>• Notificaciones básicas
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SPRINT 1 DETALLADO -->
+            <div class="sprint-breakdown">
+                <div class="sprint-title">
+                    🏃‍♂️ PRIMER SPRINT DETALLADO (14 días)
+                </div>
+                
+                <div class="day-by-day">
+                    <!-- Día 1-2 -->
+                    <div class="day-card">
+                        <div class="day-header">Días 1-2: Fundación</div>
+                        <ul class="day-tasks">
+                            <li class="day-task">Crear repositorio GitHub</li>
+                            <li class="day-task">Instalar Laravel 11 localmente</li>
+                            <li class="day-task">Configurar base datos MySQL</li>
+                            <li class="day-task">Setup inicial .env</li>
+                            <li class="day-task">Primera migración users</li>
+                        </ul>
+                        <div class="hours-estimate">6-8 horas</div>
+                    </div>
+
+                    <!-- Día 3-4 -->
+                    <div class="day-card">
+                        <div class="day-header">Días 3-4: Autenticación</div>
+                        <ul class="day-tasks">
+                            <li class="day-task">Instalar Laravel Breeze</li>
+                            <li class="day-task">Customizar registro con tipo usuario</li>
+                            <li class="day-task">Middleware para roles</li>
+                            <li class="day-task">Redirección post-login</li>
+                            <li class="day-task">Verificación email básica</li>
+                        </ul>
+                        <div class="hours-estimate">8-10 horas</div>
+                    </div>
+
+                    <!-- Día 5-6 -->
+                    <div class="day-card">
+                        <div class="day-header">Días 5-6: Base Layout</div>
+                        <ul class="day-tasks">
+                            <li class="day-task">Setup Bootstrap 5</li>
+                            <li class="day-task">Layout master template</li>
+                            <li class="day-task">Navbar con roles</li>
+                            <li class="day-task">Footer básico</li>
+                            <li class="day-task">Páginas estáticas</li>
+                        </ul>
+                        <div class="hours-estimate">6-8 horas</div>
+                    </div>
+
+                    <!-- Día 7-8 -->
+                    <div class="day-card">
+                        <div class="day-header">Días 7-8: Perfiles Base</div>
+                        <ul class="day-tasks">
+                            <li class="day-task">Migración freelancer_profiles</li>
+                            <li class="day-task">Migración client_profiles</li>
+                            <li class="day-task">Modelos y relaciones</li>
+                            <li class="day-task">Formularios perfil básico</li>
+                            <li class="day-task">Validaciones principales</li>
+                        </ul>
+                        <div class="hours-estimate">8-10 horas</div>
+                    </div>
+
+                    <!-- Día 9-10 -->
+                    <div class="day-card">
+                        <div class="day-header">Días 9-10: Dashboard Cliente</div>
+                        <ul class="day-tasks">
+                            <li class="day-task">Route dashboard cliente</li>
+                            <li class="day-task">Controller DashboardController</li>
+                            <li class="day-task">Vista con estadísticas dummy</li>
+                            <li class="day-task">Cards informativos</li>
+                            <li class="day-task">Enlaces navegación</li>
+                        </ul>
+                        <div class="hours-estimate">6-8 horas</div>
+                    </div>
+
+                    <!-- Día 11-12 -->
+                    <div class="day-card">
+                        <div class="day-header">Días 11-12: Dashboard Programador</div>
+                        <ul class="day-tasks">
+                            <li class="day-task">Dashboard programador diferenciado</li>
+                            <li class="day-task">Lista proyectos disponibles</li>
+                            <li class="day-task">Filtros básicos por tecnología</li>
+                            <li class="day-task">Cards de proyecto</li>
+                            <li class="day-task">Paginación simple</li>
+                        </ul>
+                        <div class="hours-estimate">8-10 horas</div>
+                    </div>
+
+                    <!-- Día 13-14 -->
+                    <div class="day-card">
+                        <div class="day-header">Días 13-14: Testing & Deploy</div>
+                        <ul class="day-tasks">
+                            <li class="day-task">Testing manual completo</li>
+                            <li class="day-task">Fix bugs principales</li>
+                            <li class="day-task">Deploy a hosting</li>
+                            <li class="day-task">Configurar dominio</li>
+                            <li class="day-task">Documentar sprint</li>
+                        </ul>
+                        <div class="hours-estimate">6-8 horas</div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 30px;">
+                    <div style="background: #27ae60; color: white; padding: 15px; border-radius: 10px; display: inline-block;">
+                        <strong>TOTAL SPRINT 1: 48-62 horas | 20-25 horas/semana</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CHECKLIST EJECUTIVO -->
+            <div style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); padding: 30px; border-radius: 15px; margin-top: 30px;">
+                <h2 style="color: #2c3e50; text-align: center; margin-bottom: 20px;">
+                    ✅ Checklist Ejecutivo
+                </h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div>
+                        <h4 style="color: #e74c3c;">Esta Semana:</h4>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="nombre">
+                            <label for="nombre">Decidir nombre</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="dominio">
+                            <label for="dominio">Comprar dominio</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="hosting">
+                            <label for="hosting">Setup hosting</label>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: #f39c12;">Semana 1:</h4>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="repo">
+                            <label for="repo">Repositorio GitHub</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="laravel">
+                            <label for="laravel">Laravel instalado</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="auth">
+                            <label for="auth">Autenticación funcionando</label>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: #27ae60;">Semana 2:</h4>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="perfiles">
+                            <label for="perfiles">Perfiles básicos</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="dashboard">
+                            <label for="dashboard">Dashboards funcionando</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="deploy">
+                            <label for="deploy">Primer deploy exitoso</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
